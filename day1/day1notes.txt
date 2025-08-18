@@ -1,0 +1,9 @@
+building a software product : 
+    1) Analyse the idea , requirements
+    2) Design the product 
+    3) Development phase (frontend , backend , database , fullstack)
+    4) Testing phase (QA) 
+    5) Deployment (Internet , Cloud , Devops )
+    6) Maintainance  
+    
+
