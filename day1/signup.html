@@ -1,38 +1,69 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>purple lane day 1 </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+<style>
+  body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  form{
+    background-image:linear-gradient(to right , rgb(152, 68, 82)  , rgb(100, 137, 137));
+    padding: 20px;
+    height:auto;
+    color: white;
+  }
+
+  #register{
+    height: 20px; 
+    background-color: green;
+    color: white;
+    margin: 10px;
+  }
+
+  #reset{
+      height: 20px;
+      background-color: red;
+  }
+
+  input , textarea {
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+</style>
 <body>
-<form onsubmit="validateSignupCredentials()">
+  <form >
     <!-- Basic Details -->
-    <label for="fullname">Full Name:</label><br>
+    <label for="fullname">Full Name:</label>
     <input type="text" id="fullname" name="fullname" required><br><br>
 
-    <label for="email">Email:</label><br>
+    <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br><br>
 
-    <label for="password">Password:</label><br>
+    <label for="password">Password:</label>
     <input type="password" id="password" name="password" required><br><br>
 
-    <label for="dob">Date of Birth:</label><br>
+    <label for="dob">Date of Birth:</label>
     <input type="date" id="dob" name="dob"><br><br>
 
     <!-- Gender (Radio Buttons) -->
-    <label>Gender:</label><br>
+    <label>Gender:</label>
     <input type="radio" id="male" name="gender" value="male">
-    <label for="male">Male</label><br>
+    <label for="male">Male</label>
 
     <input type="radio" id="female" name="gender" value="female">
-    <label for="female">Female</label><br>
+    <label for="female">Female</label>
 
     <input type="radio" id="other" name="gender" value="other">
     <label for="other">Other</label><br><br>
 
     <!-- Department (Dropdown) -->
-    <label for="department">Department:</label><br>
+    <label for="department">Department:</label>
     <select id="department" name="department">
       <option value="">--Select--</option>
       <option value="cse">Computer Science</option>
@@ -43,7 +74,7 @@
     </select><br><br>
 
     <!-- Skills (Checkboxes) -->
-    <label>Skills:</label><br>
+    <label>Skills:</label>
     <input type="checkbox" id="html" name="skills" value="HTML">
     <label for="html">HTML</label><br>
 
@@ -57,29 +88,17 @@
     <label for="react">React</label><br><br>
 
     <!-- Address -->
-    <label for="address">Address:</label><br>
+    <label for="address">Address:</label>
     <textarea id="address" name="address" rows="4" cols="30"></textarea><br><br>
 
     <!-- File Upload -->
-    <label for="photo">Upload Photo:</label><br>
+    <label for="photo">Upload Photo:</label>
     <input type="file" id="photo" name="photo"><br><br>
 
     <!-- Submit & Reset -->
-    <button type="submit">Register</button>
-    <button type="reset">Reset</button>
+    <button type="submit" id="register">Register</button>
+    <button type="reset" id="reset">Reset</button>
   </form>
 
-    <script>
-        const validateSignupCredentials = (e)=> {
-            e.preventDefault(); 
-            let fullname = document.getElementById("fullname");
-            let email = document.getElementById("email");
-            // Removed duplicate gender declaration
-            let password = document.getElementById("password");
-              let gender = document.querySelector('input[name="gender"]:checked')?.value || "";
-              console.log({ fullname, email, password, gender });
-
-        }
-    </script>
 </body>
 </html>
