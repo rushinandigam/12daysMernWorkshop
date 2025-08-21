@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bgchange </title>
+    <style>
+        #colorsdiv{
+            height: 80vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        
+       
+
+        #red{
+            padding: 10px ;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: red;
+        }
+        #green{
+            padding: 10px ;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: green;
+        }
+        #blue{
+            padding: 10px ;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: blue;
+        }
+
+        button{
+            height: 50px   ;
+            width: 100px ;
+        }
+
+        #buttondiv{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #addremovelisteners{
+            margin-top: 30px    ;
+            height: 20;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #onwindowload{
+            margin-top: 30px    ;
+            height: 20;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="addremovelisteners">
+        <button onclick="startdisco()" id="startdisco">Start blinking</button>
+        <button onclick="stopdisco()" id = "stopdisco">Stop blinking</button>
+    </div><br><br><br>
+    <!-- <div id="onwindowload">
+        <button onclick="startdiscoOnWindowload()">Start Disco on window load</button>
+        <button onclick="stopdiscoOnWindowload()">Stop Disco on window load </button>
+    </div> -->
+    <div id="colorsdiv">
+          <div id="red" onclick="changeToRed()">RED</div>
+    <div id="green" onclick="changeToGreen()">GREEN</div>
+    <div id="blue" onclick="changeToBlue()">BLUE</div>
+    </div>
+    <div id="buttondiv">
+        <button id="generateRandom" onclick="generateRandom()">Generate random color</button>
+          <input type="color" id="colorset">
+
+    <button onclick="clearbg()" id="clearbg">Clear</button>
+    </div>
+</body>
+
+<script>
+    let changeToRed = ()=>{
+        document.body.style.backgroundColor = "red";
+    }
+    let changeToGreen = ()=>{
+        document.body.style.backgroundColor = "green";
+    }
+    let changeToBlue = ()=>{
+        document.body.style.backgroundColor = "blue";
+    }
+
+    let generateRandom = ()=> {
+        document.body.style.backgroundColor = `rgb(${random(255)} , ${random(255)} , ${random(255)})`;
+        let generateRandom = document.getElementById("generateRandom");
+        let clearbg = document.getElementById("clearbg");
+        generateRandom.style.backgroundColor = `rgb(${random(255)} , ${random(255)} , ${random(255)})`;
+        clearbg.style.backgroundColor = `rgb(${random(255)} , ${random(255)} , ${random(255)})`;
+    }
+
+    let random = (max)=> {
+        return Math.floor(Math.random() * max);
+    }
+
+    let clearbg = ()=> {
+        document.body.style.backgroundColor = "white";
+    }
+
+    let colorset = document.getElementById("colorset");
+    colorset.onchange =  ()=> {
+        document.body.style.backgroundColor = colorset.value;
+        console.log(this.value)
+    }
+
+    let startdisco = ()=> {
+        document.addEventListener("mousemove" , generateRandom);
+        let startdisco  = document.getElementById("startdisco");
+        let stopdisco  = document.getElementById("stopdisco");
+        startdisco.style.backgroundColor = `rgb(${random(255)} , ${random(255)} , ${random(255)})`;
+        stopdisco.style.backgroundColor = `rgb(${random(255)} , ${random(255)} , ${random(255)})`;
+
+    }
+    let stopdisco = ()=> {
+        document.removeEventListener("mousemove" , generateRandom);
+    }
+
+   
+    
+
+
+</script>
+</html>
